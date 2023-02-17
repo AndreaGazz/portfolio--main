@@ -38,6 +38,7 @@
 /*===== BASE =====*/
 *, ::before, ::after {
   box-sizing: border-box;
+  
 }
 
 html {
@@ -349,6 +350,12 @@ img {
   row-gap: 2rem;
 }
 
+.gallery__text {
+  row-gap: 2rem;
+  text-align: center;
+  margin-bottom: var(--mb-4);
+}
+
 .images {
   box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
   border-radius: .5rem;
@@ -364,6 +371,46 @@ img {
   transform: scale(1.1);
   opacity: 0.7;
 }
+/* Slider */
+
+.slider {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.active-slide {
+  display: block;
+}
+/* Controls */
+
+.slider-nav {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.arrow-prev,
+.arrow-next {
+  margin: 0 10%;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 9px;
+  font-size: 1.5rem;
+}
+
+.arrow-next {}
+
 
 /* The Modal (background) */
 #image-viewer {
@@ -378,12 +425,14 @@ img {
   overflow: auto;
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.9);
+  vertical-align: auto;
 }
 .modal-content {
   margin: auto;
   display: block;
   width: 80%;
   max-width: 700px;
+  padding-top: 50px;
 }
 .modal-content { 
   animation-name: zoom;
@@ -414,7 +463,10 @@ img {
       width: 100%;
   }
 }
-
+.close__square {
+  aspect-ratio: 1;
+  padding: 10px;
+}
 /* ===== CONTACT =====*/
 .contact__input {
   width: 100%;
@@ -440,6 +492,7 @@ textarea::placeholder {
   font-size: var(--normal-font-size);
   cursor: pointer;
   margin-left: auto;
+  margin-right: auto;
 }
 
 /* ===== FOOTER =====*/

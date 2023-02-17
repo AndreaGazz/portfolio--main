@@ -146,29 +146,36 @@
             <!--===== GALLERY =====-->
             <section class="work section" id="work">
                 <h2 class="section-title">Gallery</h2>
+                <p class="gallery__text">Here are some of the photos I took that I'm proud of<br>Hope you like it!</p>
 
                 <div class="work__container bd-grid">
                     <a href="javascript:void(0)" class="images">
-                        <img src="assets/img/work1.jpg" alt="">
+                        <img src="assets/img/img1.jpeg" alt="">
                     </a>
                     <a href="javascript:void(0)" class="images">
-                        <img src="assets/img/work2.jpg" alt="">
+                        <img src="assets/img/img2.jpeg" alt="second slide">
                     </a>
                     <a href="javascript:void(0)" class="images">
-                        <img src="assets/img/work3.jpg" alt="">
+                        <img src="assets/img/img3.jpeg" alt="">
                     </a>
                     <a href="javascript:void(0)" class="images">
-                        <img src="assets/img/work4.jpg" alt="">
+                        <img src="assets/img/img4.jpeg" alt="">
                     </a>
                     <a href="javascript:void(0)" class="images">
-                        <img src="assets/img/work5.jpg" alt="">
+                        <img src="assets/img/img5.jpeg" alt="">
                     </a>
                     <a href="javascript:void(0)" class="images">
-                        <img src="assets/img/work6.jpg" alt="">
+                        <img src="assets/img/img6.jpeg" alt="">
                     </a>
                     <div id="image-viewer">
-                        <span class="close">&times;</span>
+                        <span class="close close__square">&times;</span>
                         <img class="modal-content" id="full-image">
+                        <div class="slider-nav">
+                            <span class="arrow-prev">
+                              <i class="fa fa-chevron-left"></i>< </span>
+                            <span class="arrow-next">
+                              <i class="fa fa-chevron-right"></i>> </span>
+                          </div>
                     </div>
                 </div>
                 
@@ -177,13 +184,14 @@
             <!--===== CONTACT =====-->
             <section class="contact section" id="contact">
                 <h2 class="section-title">Contact</h2>
+                <p class="gallery__text">Feel free to contact me with the button below!</p>
 
                 <div class="contact__container bd-grid">
-                    <form action="" class="contact__form">
-                        <input type="text" placeholder="Name" class="contact__input">
+                    <form action="mailto:info.andreagazzaniga@gmail.com" name="EmailForm" class="contact__form" method="post" enctype="multipart/form-data">
+                        <!--<input type="text" placeholder="Name" class="contact__input">
                         <input type="mail" placeholder="Email" class="contact__input">
-                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                        <input type="button" value="Send" href="mailto:info.andreagazzaniga@gmail.com" class="contact__button button">
+                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>-->
+                        <input type="submit" value="Contact me" href="" class="contact__button button">
                     </form>
                 </div>
             </section>
