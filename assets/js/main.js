@@ -57,70 +57,24 @@ sr.reveal('.skills__data, .images, .contact__input',{interval: 200});
 
 /*===== IMAGE VIEWER =====*/
 // Using jQuery
-//$(".images img").each(function() {
-//    $(this).click(function() {
-//        $("#full-image").attr("src", $(this).attr("src"));
-//        $('#image-viewer').show();
-//    });
-//})
+$(".images img").each(function() {
+    $(this).click(function() {
+        $("#full-image").attr("src", $(this).attr("src"));
+        $('#image-viewer').show();
+    });
+})
 
-//$("#image-viewer .close").click(function() {
-//    $('#image-viewer').hide();
-//});
+$("#image-viewer .close").click(function() {
+    $('#image-viewer').hide();
+});
 
 // Using vanilla js
- const fullImage = document.querySelector('#full-image')
- const imageViewer = document.querySelector('#image-viewer')
- document.querySelectorAll(".images img").forEach(image => {
-     image.addEventListener('click', () => {
-         fullImage.src = image.src
-         imageViewer.style.display = 'block'
-     })
- })
+// const fullImage = document.querySelector('#full-image')
+// const imageViewer = document.querySelector('#image-viewer')
+// document.querySelectorAll(".images img").forEach(image => {
+//     image.addEventListener('click', () => {
+//         fullImage.src = image.src
+//         imageViewer.style.display = 'block'
+//     })
+// })
 
- document.querySelector('#image-viewer .close').addEventListener('click', () => {
-     imageViewer.style.display = 'none'
- })
- /*$('.arrow-next').click(function() {
-    var currentSlide = $('.active-slide'),
-      nextSlide = currentSlide.next(),
-      currentDot = $('.active-dot'),
-      nextDot = currentDot.next();
-  
-    if (nextSlide.length === 0) {
-      nextSlide = $('.slide').first();
-      nextDot = $('.dot').first();
-    }
-  
-    currentSlide.fadeOut(600).removeClass('active-slide');
-    nextSlide.fadeIn(600).addClass('active-slide');
-  
-    currentDot.removeClass('active-dot');
-    nextDot.addClass('active-dot');
-  });
-  
-  $('.arrow-prev').click(function() {
-    var currentSlide = $('.active-slide'),
-      prevSlide = currentSlide.prev(),
-      currentDot = $('.active-dot'),
-      prevDot = currentDot.prev();
-  
-    if (prevSlide.length === 0) {
-      prevSlide = $('.slide').last();
-      prevDot = $('.dot').last();
-    }
-  
-    currentSlide.fadeOut(600).removeClass('active-slide');
-    prevSlide.fadeIn(600).addClass('active-slide');
-  
-    currentDot.removeClass('active-dot');
-    prevDot.addClass('active-dot');
-  });
-  
-  // this bit will resize the sliders height to make it responsive
-  $(window).on('load resize', function() {
-    var x = $('.active-slide img').height() + "px";
-  
-    $('.slider').css('min-height', x);
-    $('p').text(x);
-  });*/
