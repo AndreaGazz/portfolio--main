@@ -51,24 +51,40 @@ const sr = ScrollReveal({
 });
 
 sr.reveal('.home__data, .about__img, .skills__subtitle, .gallery__text, .skills__text',{}); 
-sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
+sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img, ',{delay: 400}); 
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .images, .contact__input',{interval: 200}); 
 
 /*===== IMAGE VIEWER =====*/
 // Using jQuery
-$(".images img").each(function() {
-    $(this).click(function() {
-        $("#full-image").attr("src", $(this).attr("src"));
-        $('#image-viewer').show();
-    });
-})
+//$(".images img").each(function() {
+//    $(this).click(function() {
+//        $("#full-image").attr("src", $(this).attr("src"));
+//        $('#image-viewer').show();
+//    });
+//})
+//$("#image-viewer .close").click(function() {
+//    $('#image-viewer').hide();
+//});
 
-$("#image-viewer .close").click(function() {
-    $('#image-viewer').hide();
-});
+
+// Using vanilla js
+const fullImage = document.querySelector('#full-image')
+const imageViewer = document.querySelector('#image-viewer')
+document.querySelectorAll(".images img").forEach(image => {
+     image.addEventListener('click', () => {
+         fullImage.src = image.src
+         imageViewer.style.display = 'block'
+     })
+ })
+
+ document.querySelector('#image-viewer .close').addEventListener('click', () => {
+     imageViewer.style.display = 'none'
+ })
 
 
+
+/*===== SLIDER =====*/
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -85,17 +101,17 @@ function currentSlide(n) {
 function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
+//  let dots = document.getElementsByClassName("dot");
   if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
+//  if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
+ // }
+ // for (i = 0; i < dots.length; i++) {
+ //   dots[i].className = dots[i].className.replace(" active", "");
   }
   slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+  //dots[slideIndex-1].className += " active";
 }
 
 
@@ -105,12 +121,4 @@ function showSlides(n) {
 
 
 
-// Using vanilla js
-// const fullImage = document.querySelector('#full-image')
-// const imageViewer = document.querySelector('#image-viewer')
-// document.querySelectorAll(".images img").forEach(image => {
-//     image.addEventListener('click', () => {
-//         fullImage.src = image.src
-//         imageViewer.style.display = 'block'
-//     })
-// })
+
