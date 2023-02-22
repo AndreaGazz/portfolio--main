@@ -56,69 +56,45 @@ sr.reveal('.home__social-icon',{ interval: 200});
 sr.reveal('.skills__data, .images, .contact__input',{interval: 200}); 
 
 /*===== IMAGE VIEWER =====*/
-// Using jQuery
-//$(".images img").each(function() {
-//    $(this).click(function() {
-//        $("#full-image").attr("src", $(this).attr("src"));
-//        $('#image-viewer').show();
-//    });
-//})
-//$("#image-viewer .close").click(function() {
-//    $('#image-viewer').hide();
-//});
+let activeImage = 0
 
-
-// Using vanilla js
-const fullImage = document.querySelector('#full-image')
-const imageViewer = document.querySelector('#image-viewer')
+// get an array of all the images with their src and index
+const imagesList = []
 document.querySelectorAll(".images img").forEach(image => {
-     image.addEventListener('click', () => {
-         fullImage.src = image.src
-         imageViewer.style.display = 'block'
-     })
- })
+    imagesList.push(image.src)
+})
 
- document.querySelector('#image-viewer .close').addEventListener('click', () => {
-     imageViewer.style.display = 'none'
- })
+// handle events (close, open, next, prev)
+const imageViewer = document.querySelector("#image-viewer")
 
+// click on an image
+document.querySelectorAll(".images img").forEach((image, index) => {
+    image.addEventListener('click', () => {
+        showFullImage(index)
+    })
+})
 
+// click on close
+imageViewer.querySelector(".close").addEventListener('click', () => {
+    imageViewer.style.display = 'none'
+})
 
-/*===== SLIDER =====*/
-let slideIndex = 1;
-showSlides(slideIndex);
+// click on prev or next
+imageViewer.querySelector('.prev').addEventListener('click', () => {
+    const prevIndex = activeImage === 0 ? imagesList.length - 1 : activeImage - 1
+    showFullImage(prevIndex)
+})
+imageViewer.querySelector('.next').addEventListener('click', () => {
+    const nextIndex = activeImage === imagesList.length - 1 ? 0 : activeImage + 1
+    showFullImage(nextIndex)
+})
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+// function that actually switches the full image to the desired one
+function showFullImage(index) {
+    const imageUrl = imagesList[index]
+
+    document.querySelector('#full-image').src = imageUrl
+    
+    imageViewer.style.display = 'flex'
+    activeImage = index
 }
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-//  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-//  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
- // }
- // for (i = 0; i < dots.length; i++) {
- //   dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  //dots[slideIndex-1].className += " active";
-}
-
-
-
-
-
-
-
-
-
